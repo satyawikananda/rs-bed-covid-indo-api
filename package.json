@@ -1,6 +1,6 @@
 {
   "name": "rs-bed-indo-api",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "Satya Wikananda <satyawikananda456@gmail.com>",
   "scripts": {
     "dev": "vite --port 3333 --open",
