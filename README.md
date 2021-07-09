@@ -2,8 +2,9 @@
 <h1>RS Bed Covid Indonesia API</h1>
 
 <p>API ketersediaan rumah sakit yang berada di Indonesia</p>
-
+⚠ <b>API ini mungkin terjadi kesalahan dikarenakan data pusat sering terjadi perubahan, jika menemukan kesalahan, silakan lapor ke issue atau jika ingin membantu silakan buat pull request</b> ⚠
 </div>
+
 
 # Pendahuluan
 API ini bertujuan untuk menampilkan data-data ketersediaan rumah sakit yang berada di Indonesia, selain itu API ini juga menampilkan daftar rumah sakit yang berada di seluruh Indonesia.
