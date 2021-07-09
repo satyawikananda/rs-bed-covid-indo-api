@@ -8,6 +8,9 @@
 # Pendahuluan
 API ini bertujuan untuk menampilkan data-data ketersediaan rumah sakit yang berada di Indonesia, selain itu API ini juga menampilkan daftar rumah sakit yang berada di seluruh Indonesia.
 
+# Daftar Endpoint
+Untuk mengetahui daftar-daftar endpoint yang tersedia, Anda bisa langsung menuju ke [https://rs-bed-covid-api.vercel.app/](https://rs-bed-covid-api.vercel.app/).
+
 # Teknologi yang di gunakan
 * [Vite](https://vitejs.dev)
 * [Vite Plugin Mix](https://github.com/egoist/vite-plugin-mix) oleh [Egoist](https://github.com/egoist/)
