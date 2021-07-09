@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+build
+.vercel_build_output
+.vercel
+*.local
+.vercel

@@ -1,0 +1,22 @@
+{
+  "name": "rs-bed-indo-api",
+  "version": "1.0.0",
+  "author": "Satya Wikananda <satyawikananda456@gmail.com>",
+  "scripts": {
+    "dev": "vite --port 3333 --open",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.30",
+    "@types/node": "^16.0.1",
+    "@types/node-fetch": "^2.5.11",
+    "cheerio": "^1.0.0-rc.10",
+    "isomorphic-unfetch": "^3.1.0",
+    "prettier": "^2.3.2",
+    "query-string": "^7.0.1",
+    "typescript": "^4.3.2",
+    "vite": "^2.4.0",
+    "vite-plugin-mix": "^0.3.1"
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RS Bed Covid API</title>
+    <style>
+      ul > li {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>RS Bed Covid API</h1>
+    <ul>
+      <li>
+        <strong>Dapatkan semua data provinsi: &nbsp;</strong>
+        <a href="/api/get-provinces">https://rs-bed-covid-api.vercel.app/api/get-provinces</a>
+      </li>
+      <li>
+        <strong>Dapatkan data kota atau kabupaten yang ada di provinsi tersebut: &nbsp;</strong>
+        <a href="/api/get-cities?provinceid=51prop">https://rs-bed-covid-api.vercel.app/api/get-cities?provinceid=51prop</a>
+      </li>
+      <li>
+        <strong>Dapatkan data rumah sakit berdasarkan provinsi dan kota atau kecamatan: &nbsp;</strong>
+        <a href="/api/get-hospitals?provinceid=51prop&cityid=5171&type=1">https://rs-bed-covid-api.vercel.app/api/get-hospitals?provinceid=51prop&cityid=5171&type=1</a>
+        <br>
+      </li>
+      <li>
+        <strong>Dapatkan data detail kapasitas ruangan atau kasur berdasarkan rumah sakit: &nbsp;</strong>
+        <a href="/api/get-bed-detail?hospitalid=5171133&type=1">https://rs-bed-covid-api.vercel.app/api/get-bed-detail?hospitalid=5171133&type=1</a>
+        <br>
+      </li>
+      <li>
+        <strong>Dapatkan data peta rumah sakit: &nbsp;</strong>
+        <a href="/api/get-hospital-map?hospitalid=5171133">https://rs-bed-covid-api.vercel.app/api/get-hospital-map?hospitalid=5171133</a>
+        <br>
+      </li>
+    </ul>
+    <strong style="margin-left:25px;">NB: </strong><span>Untuk melihat daftar id provinsi, Anda bisa menggunakan <strong>API get provinces</strong> terlebih dahulu.</span>
+    <br>
+    <strong style="margin-left:25px;">NB: </strong><span>Untuk melihat daftar id kota atau kecamatan, Anda bisa menggunakan <strong>API get cities terlebih dahulu</strong> terlebih dahulu.</span>
+    <br>
+    <strong style="margin-left:25px;">NB: </strong><span>Query string type memiliki 2 optional value: <strong>1</strong> untuk covid dan <strong>2</strong> untuk non-covid</span>
+    <br>
+    <strong style="margin-left:25px;">NB: </strong><span>Untuk mendapatkan hospital id, Anda bisa menggunakan <strong>API get hospitals</strong> terlebih dahulu</span>
+  </body>
+</html>
