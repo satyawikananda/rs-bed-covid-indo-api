@@ -1,57 +1,72 @@
-import { scrapeSite } from "~/utils/scrape-site";
-import type { BedDetail, ResponseBedDetail } from "~/types";
+import { scrapeSite } from "~/utils/scrape-site"
+import type { BedDetail, ResponseBedDetail } from "~/types"
 
 export const getBedDetail = async (
   hospitalid: string,
-  type: number
+  type: number,
 ): Promise<ResponseBedDetail> => {
   const { $, status } = await scrapeSite(
-    `/tempat_tidur?kode_rs=${hospitalid}&jenis=${type}`
-  );
-  const bedDetail: Array<BedDetail> = [];
+    `/tempat_tidur?kode_rs=${hospitalid}&jenis=${type}`,
+  )
+  const bedDetail: Array<BedDetail> = []
 
-  const name: string = $(".col-md-12.mb-2 > h3").text().trim();
-  const address: string = $(".col-md-12.mb-2 > div:nth-child(2)").text().trim();
+  const address: string = $(".col-11.col-md-11 > p > small:nth-child(2)")
+    .text()
+    .trim()
   const phone: string =
-    $(".col-md-12.mb-2 > div:nth-child(3)").text().trim() ?? null;
-  $(".card").each((_, el) => {
+    $(".col-11.col-md-11 > p > small:nth-child(4)").text().trim() ?? null
+  const name: string = $(".col-11.col-md-11 > p")
+    .text()
+    .trim()
+    .replace(address, "")
+    .replace(phone, "")
+    .trim()
+  $(".col-md-12.mb-2 ").each((_, el) => {
     const time: string = $(el)
-      .find(".card-header > div > .ml-auto.mt-1")
-      .text()
-      .trim();
-    const title: string = $(el)
-      .find(".card-body > h5:nth-child(1)")
-      .text()
-      .trim();
-    const total: number = +$(el)
       .find(
-        ".card-body > .col-md-12 > .row > div:nth-child(1) > div > div > h1"
+        ".card > .card-body > .row > .col-md-6.col-12:nth-child(1) > p.mb-0 > small",
       )
       .text()
-      .trim();
+      .trim()
+      .replace("Update", "")
+    const title: string = $(el)
+      .find(
+        ".card > .card-body > .row > .col-md-6.col-12:nth-child(1) > p.mb-0",
+      )
+      .text()
+      .trim()
+      .replace(time, "")
+      .replace("Update", "")
+      .trim()
     const bedAvailable: number = +$(el)
       .find(
-        ".card-body > .col-md-12 > .row > div:nth-child(2) > div > div > h1"
+        ".card > .card-body > .row > .col-md-6.col-12:nth-child(2)  .col-md-4.col-4:nth-child(1) > div.text-center.pt-1.pb-1 > div:nth-child(2)",
       )
       .text()
-      .trim();
+      .trim()
+    const bed_empty: number = +$(el)
+      .find(
+        ".card > .card-body > .row > .col-md-6.col-12:nth-child(2) .col-md-4.col-4:nth-child(2) > div.text-center.pt-1.pb-1 > div:nth-child(2)",
+      )
+      .text()
+      .trim()
     const queueBed: number = +$(el)
       .find(
-        ".card-body > .col-md-12 > .row > div:nth-child(3) > div > div > h1"
+        ".card > .card-body > .row > .col-md-6.col-12:nth-child(2) .col-md-4.col-4:nth-child(2) > div.text-center.pt-1.pb-1 > div:nth-child(3)",
       )
       .text()
-      .trim();
+      .trim()
 
     bedDetail.push({
       time,
       stats: {
         title,
-        total,
         bed_available: bedAvailable,
+        bed_empty,
         queue: queueBed,
       },
-    });
-  });
+    })
+  })
   return {
     status: status,
     data: {
@@ -61,5 +76,5 @@ export const getBedDetail = async (
       phone,
       bedDetail,
     },
-  };
-};
+  }
+}
