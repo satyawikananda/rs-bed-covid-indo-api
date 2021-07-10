@@ -24,7 +24,6 @@ export const handler: Handler = async (req, res, next) => {
       provinceid: provinceid as string,
       cityid: cityid as string,
     });
-    if(type == "2") return res.end("API sedang dalam tahap perbaikan");
     return res.end(JSON.stringify(data));
   }
 

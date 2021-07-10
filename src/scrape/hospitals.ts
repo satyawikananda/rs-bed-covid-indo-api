@@ -25,20 +25,48 @@ export const getHospitalList = async ({
       null
     const getAddress: string = $(el)
       .find(
-        `${
-          type == 1 ? ".card-body .col-md-7 > p" : ".card-body .col-md-5 > p"
-        }`,
+        `${type == 1 ? ".card-body .col-md-7 > p" : ".card-body .col-md-5 > p"}`
       )
       .text()
       .trim()
-    const bed_availability: number = +$(el)
-      .find(".card-body .col-md-5 > p > b")
-      .text()
-      .trim()
-    const getInfo: string = $(el)
-      .find(".card-body .col-md-5 > p:nth-child(4)")
-      .text()
-      .trim()
+    const bed_availability: number =
+      type == 1
+        ? (
+          +$(el)
+            .find(".card-body .col-md-5 > p > b")
+            .text()
+            .trim()
+        )
+        : (
+          (+$(el)
+            .find('.card-body .col-md-7 .col-md-4:nth-child(1) .card-body > .text-center:nth-child(1)')
+            .text()
+            .trim()
+          ) +
+          (+$(el)
+            .find('.card-body .col-md-7 .col-md-4:nth-child(2) .card-body > .text-center:nth-child(1)')
+            .text()
+            .trim()
+          ) +
+          (+$(el)
+            .find('.card-body .col-md-7 .col-md-4:nth-child(3) .card-body > .text-center:nth-child(1)')
+            .text()
+            .trim()
+          )
+        )
+    const getInfo: string =
+      type == 1
+        ? (
+          $(el)
+            .find(".card-body .col-md-5 > p:nth-child(4)")
+            .text()
+            .trim()
+        ) : (
+          $(el)
+            .find(".card-body .col-md-7 .col-md-4:nth-child(1) .card-footer > .text-center")
+            .text()
+            .trim()
+        )
     const getId: string = ($(el).find(".card-footer > div > a").attr("href") as string)
     const getQueue: string = $(el)
       .find(".card-body .col-md-5 > p:nth-child(3)")
