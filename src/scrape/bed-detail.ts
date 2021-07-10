@@ -52,7 +52,7 @@ export const getBedDetail = async (
       .trim()
     const queueBed: number = +$(el)
       .find(
-        ".card > .card-body > .row > .col-md-6.col-12:nth-child(2) .col-md-4.col-4:nth-child(2) > div.text-center.pt-1.pb-1 > div:nth-child(3)",
+        ".card > .card-body > .row > .col-md-6.col-12:nth-child(2) .col-md-4.col-4:nth-child(3) > div.text-center.pt-1.pb-1 > div:nth-child(2)",
       )
       .text()
       .trim()
