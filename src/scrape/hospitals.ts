@@ -63,12 +63,14 @@ export const getHospitalList = async ({
 
     if (type == 2) {
       $(el).find(".col-md-4").each((_, el) => {
-        const room: number = +$(el).find(".card-body > div:nth-child(1)").text().trim()
+        const totalBeds: number = +$(el).find(".card-body > div:nth-child(1)").text().trim()
         const bedClass: string = $(el).find(".card-body > div:nth-child(2)").text().trim()
+        const roomName: string = $(el).find(".card-body > div:nth-child(3)").text().trim()
         const info: string = capitalizeStr($(el).find(".card-footer > div:nth-child(1)").text().trim())
         beds.push({
-          available: room,
+          available: totalBeds,
           bed_class: bedClass,
+          room_name: roomName,
           info,
         })
       })
@@ -77,7 +79,7 @@ export const getHospitalList = async ({
         name,
         address,
         phone,
-        beds,
+        available_beds: beds,
         info
       })
     } else {

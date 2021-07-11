@@ -24,7 +24,7 @@ export interface HospitalsList {
   address: string | null
   phone: string | null
   bed_availability?: number
-  beds?: BedsList[] | null
+  available_beds?: BedsList[] | null
   info: string | null
   queue?: number
 }
@@ -32,6 +32,7 @@ export interface HospitalsList {
 export interface BedsList {
   available: number
   bed_class: string
+  room_name: string
   info: string
 }
 
