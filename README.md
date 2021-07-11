@@ -13,8 +13,11 @@ API ini bertujuan untuk menampilkan data-data ketersediaan rumah sakit yang bera
 Untuk mengetahui daftar-daftar endpoint yang tersedia, Anda bisa langsung menuju ke [https://rs-bed-covid-api.vercel.app/](https://rs-bed-covid-api.vercel.app/).
 
 # Teknologi yang di gunakan
+* [Typescript](https://www.typescriptlang.org/)
 * [Vite](https://vitejs.dev)
 * [Vite Plugin Mix](https://github.com/egoist/vite-plugin-mix) oleh [Egoist](https://github.com/egoist/)
+* [Cheerio](https://cheerio.js.org/)
+* dll
 
 # Instalasi
 
