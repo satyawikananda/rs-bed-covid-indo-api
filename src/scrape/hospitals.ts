@@ -75,15 +75,15 @@ export const getHospitalList = async ({
       beds.push({
         available: available1,
         bed_class: bedClass1,
-        info: getInfo1
+        info: capitalizeStr(getInfo1)
       }, {
         available: available2,
         bed_class: bedClass2,
-        info: getInfo2
+        info: capitalizeStr(getInfo2)
       }, {
         available: available3,
         bed_class: bedClass3,
-        info: getInfo3
+        info: capitalizeStr(getInfo3)
       })
     }
 
