@@ -2,6 +2,7 @@ import qs from "query-string"
 import { scrapeSite } from "~/utils/scrape-site"
 import { capitalizeStr } from "~/utils/capitalize-str"
 import type {
+  BedsList,
   HospitalsList,
   ParamHospital,
   ResponseHopitalsList,
@@ -18,7 +19,9 @@ export const getHospitalList = async ({
   const RE_NUMBER = /\d/
   const hospitals: Array<HospitalsList> = []
 
-  $(".row > .cardRS").each((_, el) => {
+  $(".row > .cardRS").each((index, el) => {
+    const beds: Array<BedsList> = []
+
     const name: string = $(el).data("string") as string
     const getPhone: string =
       $(el).find(".card-footer > div > span").text().trim().replace(" ", "") ??
@@ -29,31 +32,7 @@ export const getHospitalList = async ({
       )
       .text()
       .trim()
-    const bed_availability: number =
-      type == 1
-        ? (
-          +$(el)
-            .find(".card-body .col-md-5 > p > b")
-            .text()
-            .trim()
-        )
-        : (
-          (+$(el)
-            .find('.card-body .col-md-7 .col-md-4:nth-child(1) .card-body > .text-center:nth-child(1)')
-            .text()
-            .trim()
-          ) +
-          (+$(el)
-            .find('.card-body .col-md-7 .col-md-4:nth-child(2) .card-body > .text-center:nth-child(1)')
-            .text()
-            .trim()
-          ) +
-          (+$(el)
-            .find('.card-body .col-md-7 .col-md-4:nth-child(3) .card-body > .text-center:nth-child(1)')
-            .text()
-            .trim()
-          )
-        )
+    const bed_availability: number = +$(el).find(".card-body .col-md-5 > p > b").text().trim()
     const getInfo: string =
       type == 1
         ? (
@@ -82,6 +61,22 @@ export const getHospitalList = async ({
       ? +getQueue.replace(/[^\d]/gi, " ")
       : 0
 
+    if (type == 2) {
+      $(`.col-md-4.text-center.mb-2:nth-child(${index + 1})`).each((_, el) => {
+        const available: number = +$(el).find('.card-body > .text-center:nth-child(1)').text().trim()
+        const bedClass: string = $(el).find('.card-body > .text-center:nth-child(2)').text().trim()
+        const getInfo: string = $(el).find('.card-footer > .text-center:nth-child(1)').text().trim()
+        const info: string = capitalizeStr(getInfo)
+
+        beds.push({
+          hospital_id: id,
+          available,
+          bed_class: bedClass,
+          info
+        })
+      })
+    }
+
     hospitals.push({
       id,
       name,
@@ -89,6 +84,7 @@ export const getHospitalList = async ({
       phone,
       queue,
       bed_availability,
+      beds,
       info
     })
   })

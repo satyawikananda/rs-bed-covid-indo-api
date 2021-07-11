@@ -23,9 +23,17 @@ export interface HospitalsList {
   address: string | null
   phone: string | null
   bed_availability: number
+  beds: BedsList[] | null
   info: string | null
   id: string
   queue: number
+}
+
+export interface BedsList {
+  hospital_id: string
+  available: number
+  bed_class: string
+  info: string
 }
 
 export interface ResponseHopitalsList {
