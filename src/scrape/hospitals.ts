@@ -62,41 +62,36 @@ export const getHospitalList = async ({
       : 0
 
     if (type == 2) {
-      const available1: number = +$(el).find('.col-md-4:nth-child(1) .card-body > .text-center:nth-child(1)').text().trim()
-      const bedClass1: string = $(el).find('.col-md-4:nth-child(1) .card-body > .text-center:nth-child(2)').text().trim()
-      const getInfo1: string = $(el).find('.col-md-4:nth-child(1) .card-footer > .text-center:nth-child(1)').text().trim()
-      const available2: number = +$(el).find('.col-md-4:nth-child(2) .card-body > .text-center:nth-child(1)').text().trim()
-      const bedClass2: string = $(el).find('.col-md-4:nth-child(2) .card-body > .text-center:nth-child(2)').text().trim()
-      const getInfo2: string = $(el).find('.col-md-4:nth-child(2) .card-footer > .text-center:nth-child(1)').text().trim()
-      const available3: number = +$(el).find('.col-md-4:nth-child(3) .card-body > .text-center:nth-child(1)').text().trim()
-      const bedClass3: string = $(el).find('.col-md-4:nth-child(3) .card-body > .text-center:nth-child(2)').text().trim()
-      const getInfo3: string = $(el).find('.col-md-4:nth-child(3) .card-footer > .text-center:nth-child(1)').text().trim()
-
-      beds.push({
-        available: available1,
-        bed_class: bedClass1,
-        info: capitalizeStr(getInfo1)
-      }, {
-        available: available2,
-        bed_class: bedClass2,
-        info: capitalizeStr(getInfo2)
-      }, {
-        available: available3,
-        bed_class: bedClass3,
-        info: capitalizeStr(getInfo3)
+      $(el).find(".col-md-4").each((_, el) => {
+        const room: number = +$(el).find(".card-body > div:nth-child(1)").text().trim()
+        const bedClass: string = $(el).find(".card-body > div:nth-child(2)").text().trim()
+        const info: string = capitalizeStr($(el).find(".card-footer > div:nth-child(1)").text().trim())
+        beds.push({
+          available: room,
+          bed_class: bedClass,
+          info,
+        })
+      })
+      hospitals.push({
+        id,
+        name,
+        address,
+        phone,
+        beds,
+        info
+      })
+    } else {
+      hospitals.push({
+        id,
+        name,
+        address,
+        phone,
+        queue,
+        bed_availability,
+        info
       })
     }
 
-    hospitals.push({
-      id,
-      name,
-      address,
-      phone,
-      queue,
-      bed_availability,
-      beds,
-      info
-    })
   })
   return {
     status,
