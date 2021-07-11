@@ -19,13 +19,21 @@ export interface ParamHospital {
 }
 
 export interface HospitalsList {
+  id: string
   name: string
   address: string | null
   phone: string | null
-  bed_availability: number
+  bed_availability?: number
+  available_beds?: BedsList[] | null
   info: string | null
-  id: string
-  queue: number
+  queue?: number
+}
+
+export interface BedsList {
+  available: number
+  bed_class: string
+  room_name: string
+  info: string
 }
 
 export interface ResponseHopitalsList {

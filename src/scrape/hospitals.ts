@@ -2,6 +2,7 @@ import qs from "query-string"
 import { scrapeSite } from "~/utils/scrape-site"
 import { capitalizeStr } from "~/utils/capitalize-str"
 import type {
+  BedsList,
   HospitalsList,
   ParamHospital,
   ResponseHopitalsList,
@@ -19,26 +20,32 @@ export const getHospitalList = async ({
   const hospitals: Array<HospitalsList> = []
 
   $(".row > .cardRS").each((_, el) => {
+    const beds: Array<BedsList> = []
+
     const name: string = $(el).data("string") as string
     const getPhone: string =
       $(el).find(".card-footer > div > span").text().trim().replace(" ", "") ??
       null
     const getAddress: string = $(el)
       .find(
-        `${
-          type == 1 ? ".card-body .col-md-7 > p" : ".card-body .col-md-5 > p"
-        }`,
+        `${type == 1 ? ".card-body .col-md-7 > p" : ".card-body .col-md-5 > p"}`
       )
       .text()
       .trim()
-    const bed_availability: number = +$(el)
-      .find(".card-body .col-md-5 > p > b")
-      .text()
-      .trim()
-    const getInfo: string = $(el)
-      .find(".card-body .col-md-5 > p:nth-child(4)")
-      .text()
-      .trim()
+    const bed_availability: number = +$(el).find(".card-body .col-md-5 > p > b").text().trim()
+    const getInfo: string =
+      type == 1
+        ? (
+          $(el)
+            .find(".card-body .col-md-5 > p:nth-child(4)")
+            .text()
+            .trim()
+        ) : (
+          $(el)
+            .find(".card-body .col-md-7 .col-md-4:nth-child(1) .card-footer > .text-center")
+            .text()
+            .trim()
+        )
     const getId: string = ($(el).find(".card-footer > div > a").attr("href") as string)
     const getQueue: string = $(el)
       .find(".card-body .col-md-5 > p:nth-child(3)")
@@ -54,15 +61,39 @@ export const getHospitalList = async ({
       ? +getQueue.replace(/[^\d]/gi, " ")
       : 0
 
-    hospitals.push({
-      id,
-      name,
-      address,
-      phone,
-      queue,
-      bed_availability,
-      info
-    })
+    if (type == 2) {
+      $(el).find(".col-md-4").each((_, el) => {
+        const totalBeds: number = +$(el).find(".card-body > div:nth-child(1)").text().trim()
+        const bedClass: string = $(el).find(".card-body > div:nth-child(2)").text().trim()
+        const roomName: string = $(el).find(".card-body > div:nth-child(3)").text().trim()
+        const info: string = capitalizeStr($(el).find(".card-footer > div:nth-child(1)").text().trim())
+        beds.push({
+          available: totalBeds,
+          bed_class: bedClass,
+          room_name: roomName,
+          info,
+        })
+      })
+      hospitals.push({
+        id,
+        name,
+        address,
+        phone,
+        available_beds: beds,
+        info
+      })
+    } else {
+      hospitals.push({
+        id,
+        name,
+        address,
+        phone,
+        queue,
+        bed_availability,
+        info
+      })
+    }
+
   })
   return {
     status,
