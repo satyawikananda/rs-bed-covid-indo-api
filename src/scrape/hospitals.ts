@@ -19,7 +19,7 @@ export const getHospitalList = async ({
   const RE_NUMBER = /\d/
   const hospitals: Array<HospitalsList> = []
 
-  $(".row > .cardRS").each((index, el) => {
+  $(".row > .cardRS").each((_, el) => {
     const beds: Array<BedsList> = []
 
     const name: string = $(el).data("string") as string
@@ -62,18 +62,28 @@ export const getHospitalList = async ({
       : 0
 
     if (type == 2) {
-      $(`.col-md-4.text-center.mb-2:nth-child(${index + 1})`).each((_, el) => {
-        const available: number = +$(el).find('.card-body > .text-center:nth-child(1)').text().trim()
-        const bedClass: string = $(el).find('.card-body > .text-center:nth-child(2)').text().trim()
-        const getInfo: string = $(el).find('.card-footer > .text-center:nth-child(1)').text().trim()
-        const info: string = capitalizeStr(getInfo)
+      const available1: number = +$(el).find('.col-md-4:nth-child(1) .card-body > .text-center:nth-child(1)').text().trim()
+      const bedClass1: string = $(el).find('.col-md-4:nth-child(1) .card-body > .text-center:nth-child(2)').text().trim()
+      const getInfo1: string = $(el).find('.col-md-4:nth-child(1) .card-footer > .text-center:nth-child(1)').text().trim()
+      const available2: number = +$(el).find('.col-md-4:nth-child(2) .card-body > .text-center:nth-child(1)').text().trim()
+      const bedClass2: string = $(el).find('.col-md-4:nth-child(2) .card-body > .text-center:nth-child(2)').text().trim()
+      const getInfo2: string = $(el).find('.col-md-4:nth-child(2) .card-footer > .text-center:nth-child(1)').text().trim()
+      const available3: number = +$(el).find('.col-md-4:nth-child(3) .card-body > .text-center:nth-child(1)').text().trim()
+      const bedClass3: string = $(el).find('.col-md-4:nth-child(3) .card-body > .text-center:nth-child(2)').text().trim()
+      const getInfo3: string = $(el).find('.col-md-4:nth-child(3) .card-footer > .text-center:nth-child(1)').text().trim()
 
-        beds.push({
-          hospital_id: id,
-          available,
-          bed_class: bedClass,
-          info
-        })
+      beds.push({
+        available: available1,
+        bed_class: bedClass1,
+        info: getInfo1
+      }, {
+        available: available2,
+        bed_class: bedClass2,
+        info: getInfo2
+      }, {
+        available: available3,
+        bed_class: bedClass3,
+        info: getInfo3
       })
     }
 

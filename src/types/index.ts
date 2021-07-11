@@ -30,7 +30,6 @@ export interface HospitalsList {
 }
 
 export interface BedsList {
-  hospital_id: string
   available: number
   bed_class: string
   info: string
