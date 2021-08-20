@@ -47,6 +47,7 @@ Ingin projek ini jadi lebih baik? Anda bisa kontribusi ke projek ini, saya sanga
 Jika Anda menggunakan API ini di aplikasi Anda, Anda bisa mendaftarkan projek Anda di bawah ini :
 
 * [Bed Covid RS Indonesia](https://github.com/hendraaagil/bed-covid-rs-indo) oleh [hendraaagil](https://github.com/hendraaagil)
+* [Availability Id Hospital Bed](https://github.com/ajiyudhanto/availability-id-hospital-bed) oleh [ajiyudhanto](https://github.com/ajiyudhanto)
 
 # Referensi
 
