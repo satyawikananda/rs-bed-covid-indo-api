@@ -49,6 +49,7 @@ Jika Anda menggunakan API ini di aplikasi Anda, Anda bisa mendaftarkan projek An
 * [Bed Covid RS Indonesia](https://github.com/hendraaagil/bed-covid-rs-indo) oleh [hendraaagil](https://github.com/hendraaagil)
 * [Availability Id Hospital Bed](https://github.com/ajiyudhanto/availability-id-hospital-bed) oleh [ajiyudhanto](https://github.com/ajiyudhanto)
 * [inCOV Android App](https://github.com/maulana2468/inCOV) oleh [maulana2468](https://github.com/maulana2468)
+* [RS Bed Info Android App](https://github.com/rickyricko302/RS-Bed-Info-Android-App) oleh [ricky verdiyanto](https://github.com/rickyricko302)
 
 # Referensi
 
