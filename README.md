@@ -65,6 +65,7 @@ Jika Anda menggunakan API ini di aplikasi Anda, Anda bisa mendaftarkan projek An
 <table>
   <tr>
     <td align="center"><a href="https://satyawikananda.vercel.app"><img src="https://avatars.githubusercontent.com/u/33148052?v=4?s=100" width="100px;" alt=""/><br /><sub><b>I Gusti Ngurah Satya Wikananda</b></sub></a><br /><a href="https://github.com/satyawikananda/rs-bed-covid-indo-api/commits?author=satyawikananda" title="Code">💻</a> <a href="#maintenance-satyawikananda" title="Maintenance">🚧</a> <a href="#ideas-satyawikananda" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://hendraaagil.space"><img src="https://avatars.githubusercontent.com/u/54741166?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Hendra Agil Syaputra</b></sub></a><br /><a href="https://github.com/satyawikananda/rs-bed-covid-indo-api/issues?q=author%3Ahendraaagil" title="Bug reports">🐛</a> <a href="https://github.com/satyawikananda/rs-bed-covid-indo-api/commits?author=hendraaagil" title="Code">💻</a></td>
   </tr>
 </table>
 
