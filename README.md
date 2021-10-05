@@ -1,7 +1,4 @@
 <div align="center">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 <h1>RS Bed Covid Indonesia API</h1>
 
 <p>API ketersediaan rumah sakit yang berada di Indonesia</p>
@@ -60,17 +57,7 @@ Jika Anda menggunakan API ini di aplikasi Anda, Anda bisa mendaftarkan projek An
 * [Ina Covid Bed](https://github.com/agallio/ina-covid-bed) oleh [agallio](https://github.com/agallio)
 * [Carirs](https://github.com/mgilangjanuar/carirs) oleh [M Gilang Januar](https://github.com/mgilangjanuar)
 
----
-
-![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
-![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)
-![vercelbadge](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)
-
-Dibuat menggunakan Typescript. Kode berlisensi dibawah [MIT License](https://raw.githubusercontent.com/satyawikananda/rs-bed-covid-indo-api/main/LICENSE)
-
 ## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -86,4 +73,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+---
+
+![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
+![forthebadge](https://forthebadge.com/images/badges/made-with-typescript.svg)
+![vercelbadge](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)
+
+Dibuat menggunakan Typescript. Kode berlisensi dibawah [MIT License](https://raw.githubusercontent.com/satyawikananda/rs-bed-covid-indo-api/main/LICENSE)
