@@ -8,6 +8,16 @@ import type {
   ResponseHopitalsList,
 } from "~/types"
 
+const removeDuplicateItems = (arr: Array<HospitalsList>) => {
+  const setValue = new Set()
+
+  return arr.filter((data) => {
+    const isInSet = setValue.has(data.id)
+    setValue.add(data.id)
+    return !isInSet
+  })
+}
+
 export const getHospitalList = async ({
   type,
   provinceid,
@@ -17,7 +27,7 @@ export const getHospitalList = async ({
     `rumah_sakit?jenis=${type}&propinsi=${provinceid}&kabkota=${cityid}`,
   )
   const RE_NUMBER = /\d/
-  const hospitals: Array<HospitalsList> = []
+  let hospitals: Array<HospitalsList> = []
 
   $(".row > .cardRS").each((_, el) => {
     const beds: Array<BedsList> = []
@@ -93,10 +103,9 @@ export const getHospitalList = async ({
         info
       })
     }
-
   })
   return {
     status,
-    hospitals: hospitals,
+    hospitals: removeDuplicateItems(hospitals),
   }
 }
