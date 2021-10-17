@@ -72,11 +72,11 @@ export const getHospitalList = async ({
       : 0
 
     if (type == 2) {
-      $(el).find(".col-md-4").each((_, el) => {
-        const totalBeds: number = +$(el).find(".card-body > div:nth-child(1)").text().trim()
-        const bedClass: string = $(el).find(".card-body > div:nth-child(2)").text().trim()
-        const roomName: string = $(el).find(".card-body > div:nth-child(3)").text().trim()
-        const info: string = capitalizeStr($(el).find(".card-footer > div:nth-child(1)").text().trim())
+      $(el).find(".card").each((_, el) => {
+        const bedClass: string = $(el).find("div.card-body > div > div.col-md-7 > div > div > table > tbody:nth-child(1) > tr > td:nth-child(1)").text().trim()
+        const roomName: string = $(el).find("div.card-body > div > div.col-md-7 > div > div > table > tbody:nth-child(1) > tr > td:nth-child(2)").text().trim()
+        const totalBeds: number = +$(el).find("div.card-body > div > div.col-md-7 > div > div > table > tbody:nth-child(1) > tr > td:nth-child(3)").text().trim().replace("Tersedia", "").replace("bed kosong", "")
+        const info: string = capitalizeStr($(el).find("div.card-body > div > div.col-md-7 > div > div > table > tbody:nth-child(1) > tr > td:nth-child(4)").text().trim())
         beds.push({
           available: totalBeds,
           bed_class: bedClass,
@@ -90,7 +90,6 @@ export const getHospitalList = async ({
         address,
         phone,
         available_beds: beds,
-        info
       })
     } else {
       hospitals.push({
