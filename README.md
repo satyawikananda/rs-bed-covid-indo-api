@@ -52,6 +52,7 @@ Jika Anda menggunakan API ini di aplikasi Anda, Anda bisa mendaftarkan projek An
 * [RS Bed Info Android App](https://github.com/rickyricko302/RS-Bed-Info-Android-App) oleh [ricky verdiyanto](https://github.com/rickyricko302)
 * [Jogja Terkam Covid-19](https://github.com/tentpoles/jogja-terkam-covid19) oleh [b. alkautsar](https://github.com/tentpoles)
 * [RSBedInfo](https://github.com/andikaputraputu22/RSBedInfo) oleh [andikaputraputu](https://github.com/andikaputraputu22)
+* [Fight Covid](https://github.com/zeed-dev/fight-covid-apps) oleh [Muhammad Ziad](https://github.com/zeed-dev) & [Muhammad Hasyim Chaidir Ali](https://github.com/Hasyim-Kai)
 
 # Referensi
 
