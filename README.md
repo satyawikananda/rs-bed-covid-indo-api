@@ -53,6 +53,7 @@ Jika Anda menggunakan API ini di aplikasi Anda, Anda bisa mendaftarkan projek An
 * [Jogja Terkam Covid-19](https://github.com/tentpoles/jogja-terkam-covid19) oleh [b. alkautsar](https://github.com/tentpoles)
 * [RSBedInfo](https://github.com/andikaputraputu22/RSBedInfo) oleh [andikaputraputu](https://github.com/andikaputraputu22)
 * [Fight Covid](https://github.com/zeed-dev/fight-covid-apps) oleh [Muhammad Ziad](https://github.com/zeed-dev) & [Muhammad Hasyim Chaidir Ali](https://github.com/Hasyim-Kai)
+* [Ranavid Web Apps](https://github.com/SIB-CSD107-Capstone/RanavidProject-CSD-107) oleh [Febrianto](https://github.com/Febrianto752) & [Ikram Maulana](https://github.com/Ikram-Maulana)
 
 # Referensi
 
