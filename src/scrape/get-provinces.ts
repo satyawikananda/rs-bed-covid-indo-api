@@ -1,4 +1,4 @@
-import type { DataProvinces } from "~/types";
+import type { DataProvinces } from "~/types"
 
 export const getProvinces = (): Promise<DataProvinces> => {
   return Promise.resolve({
@@ -38,5 +38,5 @@ export const getProvinces = (): Promise<DataProvinces> => {
       { id: "91prop", name: "Papua Barat" },
       { id: "92prop", name: "Papua" },
     ],
-  });
-};
+  })
+}

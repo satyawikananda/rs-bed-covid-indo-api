@@ -5,16 +5,11 @@ export const getBedDetail = async (
   hospitalid: string,
   type: number,
 ): Promise<ResponseBedDetail> => {
-  const { $, status } = await scrapeSite(
-    `/tempat_tidur?kode_rs=${hospitalid}&jenis=${type}`,
-  )
+  const { $, status } = await scrapeSite(`/tempat_tidur?kode_rs=${hospitalid}&jenis=${type}`)
   const bedDetail: Array<BedDetail> = []
 
-  const address: string = $(".col-11.col-md-11 > p > small:nth-child(2)")
-    .text()
-    .trim()
-  const phone: string =
-    $(".col-11.col-md-11 > p > small:nth-child(4)").text().trim() ?? null
+  const address: string = $(".col-11.col-md-11 > p > small:nth-child(2)").text().trim()
+  const phone: string = $(".col-11.col-md-11 > p > small:nth-child(4)").text().trim() ?? null
   const name: string = $(".col-11.col-md-11 > p")
     .text()
     .trim()
@@ -23,16 +18,12 @@ export const getBedDetail = async (
     .trim()
   $(".col-md-12.mb-2 ").each((_, el) => {
     const time: string = $(el)
-      .find(
-        ".card > .card-body > .row > .col-md-6.col-12:nth-child(1) > p.mb-0 > small",
-      )
+      .find(".card > .card-body > .row > .col-md-6.col-12:nth-child(1) > p.mb-0 > small")
       .text()
       .trim()
       .replace("Update", "")
     const title: string = $(el)
-      .find(
-        ".card > .card-body > .row > .col-md-6.col-12:nth-child(1) > p.mb-0",
-      )
+      .find(".card > .card-body > .row > .col-md-6.col-12:nth-child(1) > p.mb-0")
       .text()
       .trim()
       .replace(time, "")

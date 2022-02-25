@@ -1,6 +1,6 @@
-import { defineConfig } from "vite";
-import { resolve } from "path";
-import mix, { vercelAdapter } from "vite-plugin-mix";
+import { defineConfig } from "vite"
+import { resolve } from "path"
+import mix, { vercelAdapter } from "vite-plugin-mix"
 
 export default defineConfig({
   resolve: {
@@ -11,7 +11,7 @@ export default defineConfig({
   plugins: [
     mix({
       handler: "./handler.ts",
-      adapter: vercelAdapter()
+      adapter: vercelAdapter(),
     }),
   ],
-});
+})
