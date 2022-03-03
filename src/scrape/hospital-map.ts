@@ -1,10 +1,13 @@
-import fetch from "isomorphic-unfetch"
+import fetch from "node-fetch"
+import { Agent } from "https"
 import { BASE_URL } from "~/const"
 import type { ResponseHospitalMap } from "~/types"
 
+const agent = new Agent({ rejectUnauthorized: false })
+
 export const getHospitalMap = async (hospitalid: string): Promise<ResponseHospitalMap> => {
-  const fetchData = await fetch(`${BASE_URL}rumah_sakit/${hospitalid}`)
-  const data = await fetchData.json()
+  const fetchData = await fetch(`${BASE_URL}rumah_sakit/${hospitalid}`, { agent })
+  const data: any = await fetchData.json()
   return Promise.resolve({
     status: fetchData.status,
     data: {
