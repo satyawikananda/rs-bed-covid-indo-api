@@ -1,18 +1,20 @@
-import fetch from "isomorphic-unfetch"
+import axios from "axios"
+import { Agent } from "https"
 import { BASE_URL } from "~/const"
 import type { ResponseHospitalMap } from "~/types"
 
+const agent = new Agent({ rejectUnauthorized: false })
+
 export const getHospitalMap = async (hospitalid: string): Promise<ResponseHospitalMap> => {
-  const fetchData = await fetch(`${BASE_URL}rumah_sakit/${hospitalid}`)
-  const data = await fetchData.json()
+  const data = await axios.get(`${BASE_URL}rumah_sakit/${hospitalid}`, { httpsAgent: agent })
   return Promise.resolve({
-    status: fetchData.status,
+    status: data.status,
     data: {
       id: hospitalid,
-      name: data.data.RUMAH_SAKIT,
-      address: data.data.ALAMAT,
-      lat: data.data.alt,
-      long: data.data.long,
+      name: data.data.data.RUMAH_SAKIT,
+      address: data.data.data.ALAMAT,
+      lat: data.data.data.alt,
+      long: data.data.data.long,
       gmaps: `https://www.google.com/maps/search/?api=1&query=${data.data.alt},${data.data.long}`,
     },
   })

@@ -13,6 +13,7 @@
     "@types/cheerio": "^0.22.31",
     "@types/node": "^16.11.26",
     "@types/node-fetch": "^2.6.1",
+    "axios": "^0.26.0",
     "cheerio": "^1.0.0-rc.10",
     "isomorphic-unfetch": "^3.1.0",
     "prettier": "^2.5.1",

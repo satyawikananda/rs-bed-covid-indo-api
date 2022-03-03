@@ -1,11 +1,14 @@
 import cheerio from "cheerio"
-import fetch from "isomorphic-unfetch"
+import axios from "axios"
+import { Agent } from "https"
 import { BASE_URL } from "~/const"
+
+const agent = new Agent({ rejectUnauthorized: false })
 
 export const scrapeSite = async (endpoint: string) => {
   try {
-    const fetchSite = await fetch(`${BASE_URL}${endpoint}`)
-    const html = await fetchSite.text()
+    const fetchSite = await axios.get(`${BASE_URL}${endpoint}`, { httpsAgent: agent })
+    const html = await fetchSite.data
     const status = fetchSite.status
     const $ = cheerio.load(html)
     return { $, status }
