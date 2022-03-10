@@ -61,6 +61,12 @@ Jika Anda menggunakan API ini di aplikasi Anda, Anda bisa mendaftarkan projek An
 * [Ina Covid Bed](https://github.com/agallio/ina-covid-bed) oleh [agallio](https://github.com/agallio)
 * [Carirs](https://github.com/mgilangjanuar/carirs) oleh [M Gilang Januar](https://github.com/mgilangjanuar)
 
+# Dukung saya
+Merasa projek ini bermanfaat? Anda bisa dukung saya di platform donasi yang saya miliki dibawah ini, seberapa pun besar donasi Anda yang berikan kepada saya, akan sangat berarti bagi saya.
+
+* [Trakteer](https://trakteer.id/satya-wikananda/tip)
+* [ko-fi](https://ko-fi.com/satyawikananda)
+
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
